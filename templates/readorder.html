@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vieworder</title>
+</head>
+<body>
+<h1>order</h1>
+<table border="5">
+    <thead>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Action</th>
+    </thead>
+    <tbody>
+    <tr>
+        {% for ord in order %}
+            <td>{{ord.product.name}}</td>
+            <td>{{ord.quantity}}</td>
+            <td>
+                <a href="{% url 'store:updateorder' ord.id %}"><button type="submit">Edit</button></a>
+                <a href="{% url 'store:deleteorder' ord.id %}"><button type="submit">delete</button></a>
+            </td>
+        {% endfor %}
+    </tr>
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+<a href="{% url 'store:createorder' %}">Add Oreders</a>
+
+</body>
+</html>

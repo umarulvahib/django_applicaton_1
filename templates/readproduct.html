@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>viewproduct</title>
+</head>
+<body>
+<h1>product</h1>
+<table border="5">
+    <thead>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Category</th>
+    <th>Stock</th>
+    <th>Action</th>
+    </thead>
+    <tbody>
+    <tr>
+        {% for pro in product %}
+        <td>{{pro.name}}</td>
+        <td>{{pro.description}}</td>
+        <td>{{pro.price}}</td>
+        <td>{{pro.category.name}}</td>
+        <td>{{pro.stock}}</td>
+        <td>
+            <a href="{% url 'store:updateproduct' pro.id %}"><button type="submit">Edit</button></a>
+            <a href="{% url 'store:deleteproduct' pro.id %}"><button type="submit">delete</button></a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+<a href="{% url 'store:createproduct' %}">Add Product</a>
+
+</body>
+</html>

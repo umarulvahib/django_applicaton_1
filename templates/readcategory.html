@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>viewcategory</title>
+</head>
+<body>
+<h1>category</h1>
+<table border="5">
+    <thead>
+    <th>Name</th>
+    <th>Action</th>
+    </thead>
+    <tbody>
+    <tr>
+         {% for cat in category %}
+        <td>{{cat.name}}</td>
+        <td>
+            <a href="{% url 'store:updatecategory' cat.id %}"><button type="submit">Edit</button></a>
+            <a href="{% url 'store:deletecategory' cat.id %}"><button type="submit">delete</button></a>
+        </td>
+           {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+<a href="{% url 'store:createcategory' %}">Add Category</a>
+
+</body>
+</html>
